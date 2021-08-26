@@ -17,8 +17,8 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Employee List</h3>
-	<a href="{{ route('employee.registration.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Employee</a>			  
+				  <h3 class="box-title">Employee Leave </h3>
+	<a href="{{ route('employee.leave.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Employee Leave</a>			  
 
 				</div>
 				<!-- /.box-header -->
@@ -28,35 +28,28 @@
 						<thead>
 			<tr>
 				<th width="5%">SL</th>  
-				<th>Name</th> 
-				<th>ID NO</th>
-				<th>Mobile</th>
-				<th>Gender</th>
-				<th>Join Date</th>
-				<th>Salary</th>
-				@if(Auth::user()->role == "Admin")
-				<th>Code</th>
-				 @endif
+				<th>Name</th>
+				<th>ID No </th>
+				<th>Purpose </th>
+				<th>Start Date</th>
+				<th>End Date</th> 
 				<th width="25%">Action</th>
 				 
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($allData as $key => $employee )
+			@foreach($allData as $key => $leave )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td> {{ $employee->name }}</td>	
-				<td> {{ $employee->id_no }}</td>	
-				<td> {{ $employee->mobile }}</td>	
-				<td> {{ $employee->gender }}</td>	
-				<td> {{ $employee->join_date }}</td>	
-				<td> {{ $employee->salary }}</td>
-				@if(Auth::user()->role == "Admin")	
-				<td> {{ $employee->code }}</td>	
-				 @endif			 
+				<td> {{ $leave['user']['name'] }}</td>
+				<td> {{ $leave['user']['id_no'] }}</td>
+				<td> {{ $leave['purpose']['name'] }}</td>
+				<td> {{ $leave->start_date }}</td>
+				<td> {{ $leave->end_date }}</td>
+
 				<td>
-<a href="{{ route('employee.registration.edit',$employee->id) }}" class="btn btn-info">Edit</a>
-<a target="_blank" href="{{ route('employee.registration.details',$employee->id) }}" class="btn btn-danger">Details</a>
+<a href="{{ route('employee.leave.edit',$leave->id) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('employee.leave.delete',$leave->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
 				</td>
 				 

@@ -164,7 +164,7 @@
 		<h5>Designation <span class="text-danger">*</span></h5>
 		<div class="controls">
 	 <select name="designation_id" required="" class="form-control">
-			<option value="" selected="" disabled="">Select Designation</option>
+			<option value="" selected="" disabled="">Select Year</option>
 			 @foreach($designation as $desi)
 			<option value="{{ $desi->id }}">{{ $desi->name }}</option>
 		 	@endforeach
