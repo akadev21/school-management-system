@@ -67,16 +67,16 @@
             </span>
           </a>
 <ul class="treeview-menu ">
-<li><a href="{{route('student.class.view')}}"><i class="ti-more"></i>Student Class</a></li>
-<li><a href="{{route('student.year.view')}}"><i class="ti-more"></i>Student Year</a></li>
-<li><a href="{{route('student.group.view')}}"><i class="ti-more"></i>Student Group</a></li>
-<li><a href="{{route('student.shift.view')}}"><i class="ti-more"></i>Student Shift</a></li>
-<li><a href="{{route('fee.category.view')}}"><i class="ti-more"></i>Fee Category</a></li>
-<li><a href="{{route('fee.amount.view')}}"><i class="ti-more"></i>Fee Category Amount</a></li>
-<li><a href="{{route('exam.type.view')}}"><i class="ti-more"></i>Exam Type</a></li>
-<li><a href="{{route('school.subject.view')}}"><i class="ti-more"></i>School Subject</a></li>
-<li><a href="{{route('assign.subject.view')}}"><i class="ti-more"></i>Assign Subject</a></li>
-<li><a href="{{route('designation.view')}}"><i class="ti-more"></i>Assign Subject</a></li>
+<li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
+         <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
+         <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
+         <li><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
+         <li><a href="{{ route('fee.category.view') }}"><i class="ti-more"></i>Fee Category</a></li>
+        <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a></li>
+         <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
+         <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
+         <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
+         <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation </a></li>
 </ul>
         </li>
     
@@ -112,6 +112,19 @@
 <li><a href="{{route('employee.leave.view')}}"><i class="ti-more"></i>Employee Leave</a></li>
 <li><a href="{{route('employee.attendance.view')}}"><i class="ti-more"></i>Employee Attendance</a></li>
 <li><a href="{{route('employee.monthly.salary')}}"><i class="ti-more"></i>Employee Monthly Salary</a></li>
+</ul>
+        </li>
+
+<li class="treeview {{ ($prefix == '/marks')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Marks Management</span>
+            <span class="pull-right-container"> 
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+<ul class="treeview-menu ">
+<li><a href="{{route('marks.entry.add')}}"><i class="ti-more"></i>Marks Entry</a></li>
+
 </ul>
         </li>
 
