@@ -81,7 +81,7 @@ $originalfee = $registrationfee->amount;
     <td>{{ $details['student']['name'] }}</td>
   </tr>
 
- 
+   
   <tr>
     <td>5</td>
     <td><b>Session</b></td>
@@ -94,7 +94,7 @@ $originalfee = $registrationfee->amount;
   </tr>
   <tr>
     <td>7</td>
-    <td><b>Exam  Fee</b></td>
+    <td><b>Exam Fee</b></td>
     <td>{{ $originalfee }} $</td>
   </tr>
   <tr>
@@ -140,7 +140,7 @@ $originalfee = $registrationfee->amount;
     <td>{{ $details['student']['name'] }}</td>
   </tr>
 
-  <
+  
   <tr>
     <td>5</td>
     <td><b>Session</b></td>

@@ -104,17 +104,17 @@ public function LeaveUpdate(Request $request,$id){
 
 
 
-    // public function LeaveDelete($id){
-    //     $leave = EmployeeLeave::find($id);
-    //     $leave->delete();
+    public function LeaveDelete($id){
+        $leave = EmployeeLeave::find($id);
+        $leave->delete();
 
-    //     $notification = array(
-    //         'message' => 'Employee Leave Data Deleted Successfully',
-    //         'alert-type' => 'success'
-    //     );
+        $notification = array(
+            'message' => 'Employee Leave Data Deleted Successfully',
+            'alert-type' => 'success'
+        );
 
-    //     return redirect()->route('employee.leave.view')->with($notification);
-    // }
+        return redirect()->route('employee.leave.view')->with($notification);
+    }
 
 
 

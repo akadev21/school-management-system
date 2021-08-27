@@ -22,7 +22,8 @@ use App\Http\Controllers\Backend\Student\ExamFeeController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
-
+use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
+use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -218,16 +219,23 @@ Route::get('designation/delete/{id}', [DesignationController::class, 'Designatio
 
 
 });
-//Student Registration Routes
+/// Student Registration Routes  
 Route::prefix('students')->group(function(){
 
 Route::get('/reg/view', [StudentRegController::class, 'StudentRegView'])->name('student.registration.view');
-Route::get('reg/Add', [StudentRegController::class, 'StudentRegAdd'])->name('student.registration.add');
-Route::post('reg/store', [StudentRegController::class, 'StudentRegStore'])->name('store.student.registration');
-Route::get('year/class/wise', [StudentRegController::class, 'StudentClassYearWise'])->name('student.year.class.wise');
-Route::get('reg/edit/{student_id}', [StudentRegController::class, 'StudentRegEdit'])->name('student.registration.edit');
+
+Route::get('/reg/Add', [StudentRegController::class, 'StudentRegAdd'])->name('student.registration.add');
+
+Route::post('/reg/store', [StudentRegController::class, 'StudentRegStore'])->name('store.student.registration');
+ 
+Route::get('/year/class/wise', [StudentRegController::class, 'StudentClassYearWise'])->name('student.year.class.wise');
+
+Route::get('/reg/edit/{student_id}', [StudentRegController::class, 'StudentRegEdit'])->name('student.registration.edit');
+
 Route::post('/reg/update/{student_id}', [StudentRegController::class, 'StudentRegUpdate'])->name('update.student.registration');
-Route::get('reg/promortion/{student_id}', [StudentRegController::class, 'StudentRegPromotion'])->name('student.registration.promotion');
+
+Route::get('/reg/promotion/{student_id}', [StudentRegController::class, 'StudentRegPromotion'])->name('student.registration.promotion');
+
 Route::post('/reg/update/promotion/{student_id}', [StudentRegController::class, 'StudentUpdatePromotion'])->name('promotion.student.registration');
 
 Route::get('/reg/details/{student_id}', [StudentRegController::class, 'StudentRegDetails'])->name('student.registration.details');
@@ -306,7 +314,32 @@ Route::get('leave/employee/edit/{id}', [EmployeeLeaveController::class, 'LeaveEd
 
 Route::post('leave/employee/update/{id}', [EmployeeLeaveController::class, 'LeaveUpdate'])->name('update.employee.leave');
 
-// Route::get('leave/employee/delete/{id}', [EmployeeLeaveController::class, 'LeaveDelete'])->name('employee.leave.delete');
+Route::get('leave/employee/delete/{id}', [EmployeeLeaveController::class, 'LeaveDelete'])->name('employee.leave.delete');
+
+
+//Employe Attendance ALL Routes
+    
+Route::get('attendance/employee/view', [EmployeeAttendanceController::class, 'AttendanceView'])->name('employee.attendance.view');
+
+Route::get('attendance/employee/add', [EmployeeAttendanceController::class, 'AttendanceAdd'])->name('employee.attendance.add');
+
+Route::post('attendance/employee/store', [EmployeeAttendanceController::class, 'AttendanceStore'])->name('store.employee.attendance');
+
+Route::get('attendance/employee/edit/{date}', [EmployeeAttendanceController::class, 'AttendanceEdit'])->name('employee.attendance.edit');
+
+Route::get('attendance/employee/details/{date}', [EmployeeAttendanceController::class, 'AttendanceDetails'])->name('employee.attendance.details');
+
+// Employee Monthly Salary All Routes 
+Route::get('monthly/salary/view', [MonthlySalaryController::class, 'MonthlySalaryView'])->name('employee.monthly.salary');
+
+Route::get('monthly/salary/get', [MonthlySalaryController::class, 'MonthlySalaryGet'])->name('employee.monthly.salary.get');
+
+// Route::get('monthly/salary/payslip/{employee_id}', [MonthlySalaryController::class, 'MonthlySalaryPayslip'])->name('employee.monthly.salary.payslip');
+
+
+
+
+
 
 });
 

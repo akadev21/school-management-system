@@ -63,7 +63,8 @@
 	  
  			</div> <!-- End Col md 3 --> 
 
-		<div class="col-md-3">
+
+<div class="col-md-3">
 
  		 <div class="form-group">
 		<h5>Month <span class="text-danger"> </span></h5>
@@ -72,29 +73,32 @@
 			<option value="" selected="" disabled="">Select Month</option>
 			 
 			<option value="January">January</option>
-			<option value="February">February</option>
-			<option value="Mars">Mars</option>
-			<option value="April">April</option>	
+			<option value="Febuary">Febuary</option>
+			<option value="March">March</option>
+			<option value="April">April</option>
 			<option value="May">May</option>
-			<option value="June">June</option>
+			<option value="Jun">Jun</option>
 			<option value="July">July</option>
-			<option value="Agaust">Agaust</option>
-			<option value="Setptember">Setptember</option>
+			<option value="August">August</option>
+			<option value="September">September</option>
 			<option value="October">October</option>
 			<option value="November">November</option>
-			<option value="December">December</option>
-
+			<option value="December">December</option> 
 			 
 		</select>
 	  </div>		 
 	  </div>
 	  
- 			</div> <!-- End Col md 4 --> 
+ 			</div> <!-- End Col md 3 --> 
+
+
+
+
  			<div class="col-md-3" style="padding-top: 25px;">
 
   <a id="search" class="btn btn-primary" name="search"> Search</a>
 	  
- 			</div> <!-- End Col md 4 --> 		
+ 			</div> <!-- End Col md 3 --> 		
 			</div><!--  end row --> 
 
 

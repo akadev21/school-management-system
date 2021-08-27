@@ -63,8 +63,7 @@
 	  
  			</div> <!-- End Col md 3 --> 
 
-				
- 		<div class="col-md-3">
+	<div class="col-md-3">
 
  		 <div class="form-group">
 		<h5>Exam Type <span class="text-danger"> </span></h5>
@@ -80,11 +79,15 @@
 	  </div>
 	  
  			</div> <!-- End Col md 3 --> 
+
+
+
+
  			<div class="col-md-3" style="padding-top: 25px;">
 
   <a id="search" class="btn btn-primary" name="search"> Search</a>
 	  
- 			</div> <!-- End Col md 4 --> 		
+ 			</div> <!-- End Col md 3 --> 		
 			</div><!--  end row --> 
 
 

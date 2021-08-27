@@ -31,7 +31,7 @@
 
 <table id="customers">
   <tr>
-   <td><h2>
+    <td><h2>
   <?php $image_path = '/upload/easyschool.png'; ?>
   <img src="{{ public_path() . $image_path }}" width="200" height="100">
 
@@ -40,20 +40,22 @@
 <p>School Address</p>
 <p>Phone : 343434343434</p>
 <p>Email : support@easylerningbd.com</p>
-<p><b> Student Registration Fee</b></p>
+<p> <b> Student Registration Fee</b> </p>
+
     </td> 
   </tr>
   
    
 </table>
-@php
+
+@php 
 $registrationfee = App\Models\FeeCategoryAmount::where('fee_category_id','1')->where('class_id',$details->class_id)->first();
 $originalfee = $registrationfee->amount;
-            $discount = $details['discount']['discount'];
-            $discounttablefee = $discount/100*$originalfee;
-            $finalfee = (float)$originalfee-(float)$discounttablefee; 
-@endphp
+        $discount = $details['discount']['discount'];
+        $discounttablefee = $discount/100*$originalfee;
+        $finalfee = (float)$originalfee-(float)$discounttablefee;
 
+@endphp 
 
 <table id="customers">
   <tr>
@@ -90,38 +92,33 @@ $originalfee = $registrationfee->amount;
   </tr>
   <tr>
     <td>6</td>
-    <td><b>class Session </b></td>
+    <td><b>Class </b></td>
     <td>{{ $details['student_class']['name'] }}</td>
   </tr>
   <tr>
     <td>7</td>
-    <td><b>Rregistration Fee</b></td>
+    <td><b>Registration Fee</b></td>
     <td>{{ $originalfee }} $</td>
   </tr>
   <tr>
     <td>8</td>
-    <td><b>Discount Fee</b></td>
-    <td>{{ $discount }} %</td>
+    <td><b>Discount Fee </b></td>
+    <td>{{ $discount  }} %</td>
   </tr>
 
     <tr>
     <td>9</td>
-    <td><b>Fee for this Student</b></td>
+    <td><b>Fee For this Student </b></td>
     <td>{{ $finalfee }} $</td>
   </tr>
-
-
-   
+ 
     
    
 </table>
 <br> <br>
   <i style="font-size: 10px; float: right;">Print Data : {{ date("d M Y") }}</i>
 
-<!-- ------------------------------------------------------------------------------ -->
-<hr style="border:dashed 2px ;width: 95%;color: #000000;margin-bottom:50px ;">
-<!-- ------------------------------------------------------------------------------ -->
-
+<hr style="border: dashed 2px; width: 95%; color: #000000; margin-bottom: 50px">
 
 <table id="customers">
   <tr>
@@ -158,32 +155,37 @@ $originalfee = $registrationfee->amount;
   </tr>
   <tr>
     <td>6</td>
-    <td><b>class Session </b></td>
+    <td><b>Class </b></td>
     <td>{{ $details['student_class']['name'] }}</td>
   </tr>
   <tr>
     <td>7</td>
-    <td><b>Rregistration Fee</b></td>
-    <td>{{ $originalfee }}</td>
+    <td><b>Registration Fee</b></td>
+    <td>{{ $originalfee }} $</td>
   </tr>
   <tr>
     <td>8</td>
-    <td><b>Discount Fee</b></td>
-    <td>{{ $discount }}</td>
+    <td><b>Discount Fee </b></td>
+    <td>{{ $discount  }} %</td>
   </tr>
 
     <tr>
     <td>9</td>
-    <td><b>Fee for this Student</b></td>
-    <td>{{ $finalfee }}</td>
+    <td><b>Fee For this Student </b></td>
+    <td>{{ $finalfee }} $</td>
   </tr>
-
-
-   
+ 
     
    
 </table>
 <br> <br>
   <i style="font-size: 10px; float: right;">Print Data : {{ date("d M Y") }}</i>
+
+
+
+
+
+
+
 </body>
 </html>

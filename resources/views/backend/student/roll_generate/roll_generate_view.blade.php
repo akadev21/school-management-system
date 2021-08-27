@@ -20,7 +20,7 @@
 
 				  <div class="box-body">
 				
-		<form method="post" action="{{route('roll.generate.store')}}">
+		<form method="post" action="{{ route('roll.generate.store') }}">
 			@csrf
 			<div class="row">
 
