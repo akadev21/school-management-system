@@ -28,8 +28,8 @@
 
 <div class="col-md-6">
 
- 		 <div class="form-group">
-		<h5>Attendance Date <span class="text-danger">*</span></h5>
+ 		<div class="form-group">
+		<h5>Attendace Date <span class="text-danger">*</span></h5>
 		<div class="controls">
 	 <input type="date" name="date" id="date" class="form-control" > 
 	  </div>
@@ -37,17 +37,15 @@
 	</div>
 	  
  			</div> <!-- End Col md 6 --> 
-
-
-
- 		
+			
+ 		 
 
 
  			<div class="col-md-6" style="padding-top: 25px;">
 
   <a id="search" class="btn btn-primary" name="search"> Search</a>
 	  
- 			</div> <!-- End Col md 4 --> 		
+ 			</div> <!-- End Col md 6 --> 		
 			</div><!--  end row --> 
 
 
@@ -99,8 +97,7 @@
 
 <script type="text/javascript">
   $(document).on('click','#search',function(){
-    var date = $('#date').val();
-    
+    var date = $('#date').val();   
      $.ajax({
       url: "{{ route('employee.monthly.salary.get')}}",
       type: "get",
