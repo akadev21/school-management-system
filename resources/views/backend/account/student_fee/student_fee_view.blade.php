@@ -17,8 +17,8 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Grade Marks List </h3>
-	<a href="{{ route('marks.grade.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Grade Marks</a>			  
+				  <h3 class="box-title">Student Fee List </h3>
+	<a href="{{ route('student.fee.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add / Edit Student Fee</a>			  
 
 				</div>
 				<!-- /.box-header -->
@@ -28,14 +28,15 @@
 						<thead>
 			<tr>
 				<th width="5%">SL</th>  
-				<th>Grade Name</th> 
-				<th>Grade Point</th>
-				<th>Start Marks</th>
-				<th>End Marks </th>
-				<th>Point Range</th>
-				<th>Remarks</th>
+				<th>ID No</th> 
+				<th>Name</th>
+				<th>Year</th>
+				<th>Class </th>
+				<th>Fee Type</th>
+				<th>Amount</th>
+				<th>Date</th>
 				 
-				<th width="20%">Action</th>
+				
 				 
 			</tr>
 		</thead>
@@ -43,17 +44,16 @@
 			@foreach($allData as $key => $value )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td> {{ $value->grade_name }}</td>	
-				<td> {{ number_format((float)$value->grade_point,2)  }}</td>	
-				<td> {{ $value->start_marks }}</td>	
-				<td> {{ $value->end_marks }}</td>	
-				<td> {{ $value->start_point }} -  {{ $value->end_point }}</td>	
-				<td> {{ $value->remarks }}</td>
+				<td> {{ $value['student']['id_no'] }}</td>	
+				<td> {{  $value['student']['name'] }}</td>	
+				<td> {{  $value['year']['name']}}</td>	
+				<td> {{  $value['class']['name']}}</td>	
+				<td> {{ $value['fee_category']['fee_category_id'] }}</td>	
+				<td> {{  $value->amount}}</td>
+				<td> {{  date('M Y',strtotime($value->date))  }}</td>
+				
 				 		 
 				<td>
-<a href="{{ route('marks.grade.edit',$value->id) }}" class="btn btn-info">Edit</a>
- <a href="{{ route('marks.grade.delete',$value->id) }}" class="btn btn-danger">Delete</a>
-
 				</td>
 				 
 			</tr>
