@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Backend\Account;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\AssignStudent;
 use App\Models\User;
 use App\Models\DiscountStudent;
 use App\Models\FeeCategoryAmount;
-use App\Models\FeeCategory;
 
 use App\Models\StudentYear;
 use App\Models\StudentClass;
@@ -17,29 +17,29 @@ use App\Models\StudentShift;
 use App\Models\ExamType;
 use DB;
 use PDF;
+
 use App\Models\AccountStudentFee;
-
-
+use App\Models\FeeCategory;
 
 class StudentFeeController extends Controller
 {
     public function StudentFeeView(){
-        $data['allData'] = AccountStudentFee::all();
+
+        $data['allData'] = AccountStudentFee::all(); 
         return view('backend.account.student_fee.student_fee_view',$data);
+    }
+
+
+    public function StudentFeeAdd(){
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
+        $data['fee_categories'] = FeeCategory::all();
+        return view('backend.account.student_fee.student_fee_add',$data);
 
     }
 
-public function StudentFeeAdd(){
 
-    $data['years'] = StudentYear::all();
-    $data['classes'] = StudentClass::all();
-    $data['fee_categories'] = FeeCategory::all();
-    return view('backend.account.student_fee.student_fee_add',$data);
-
-    
-}
-
- public function StudentFeeGetStudent(Request $request){
+  public function StudentFeeGetStudent(Request $request){
 
     $year_id = $request->year_id;
     $class_id = $request->class_id;
@@ -82,9 +82,9 @@ if($accountstudentfees !=null) {
      $discountablefee = $discount/100*$orginalfee;
      $finalfee = (int)$orginalfee-(int)$discountablefee;             
 
-    $html[$key]['tdsource'] .='<td>'. '<input type="text" name="account[]" value="'.$finalfee.' " class="form-control" readonly'.'</td>';
+    $html[$key]['tdsource'] .='<td>'. '<input type="text" name="amount[]" value="'.$finalfee.' " class="form-control" readonly'.'</td>';
      
-    $html[$key]['tdsource'] .='<td>'.'<input type="hidden" name="student_id[]" value="'.$std->student_id.'">'.'<input type="checkbox" name="checkmanage[]" id="id{{$key}}" value="'.$key.'" '.$checked.' style="transform: scale(1.5);margin-left: 10px;"> <label for="id{{$key}}"> </label> '.'</td>'; 
+    $html[$key]['tdsource'] .='<td>'.'<input type="hidden" name="student_id[]" value="'.$std->student_id.'">'.'<input type="checkbox" name="checkmanage[]" id="'.$key.'" value="'.$key.'" '.$checked.' style="transform: scale(1.5);margin-left: 10px;"> <label for="'.$key.'"> </label> '.'</td>'; 
 
          }  
         return response()->json(@$html);
@@ -92,22 +92,53 @@ if($accountstudentfees !=null) {
    } // end mehtod
 
 
+  
 
+    public function StudentFeeStore(Request $request){
+        
+        $date = date('Y-m',strtotime($request->date));
 
+        AccountStudentFee::where('year_id',$request->year_id)->where('class_id',$request->class_id)->where('fee_category_id',$request->fee_category_id)->where('date',$request->date)->delete();
 
+        $checkdata = $request->checkmanage;
 
+        if ($checkdata !=null) {
+            for ($i=0; $i <count($checkdata) ; $i++) { 
+                $data = new AccountStudentFee();
+                $data->year_id = $request->year_id;
+                $data->class_id = $request->class_id;
+                $data->date = $date;
+                $data->fee_category_id = $request->fee_category_id;
+                $data->student_id = $request->student_id[$checkdata[$i]];
+                $data->amount = $request->amount[$checkdata[$i]];
+                $data->save();
+            } // end for loop
+        } // end if 
 
+        if (!empty(@$data) || empty($checkdata)) {
 
+        $notification = array(
+            'message' => 'Well Done Data Successfully Updated',
+            'alert-type' => 'success'
+        );
 
+        return redirect()->route('student.fee.view')->with($notification);
+        }else{
 
+            $notification = array(
+            'message' => 'Sorry Data not Saved',
+            'alert-type' => 'error'
+        );
 
+        return redirect()->back()->with($notification);
 
+        } 
 
+    } // end method 
 
-
-public function StudentFeeStore(){
     
-}
 
 
+
 }
+ 

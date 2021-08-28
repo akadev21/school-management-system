@@ -17,7 +17,7 @@
 <div class="col-12">
 <div class="box bb-3 border-warning">
 				  <div class="box-header">
-					<h4 class="box-title">Add <strong>Student Fee </strong></h4>
+					<h4 class="box-title">Add <strong>Employee Salary </strong></h4>
 				  </div>
 
 				  <div class="box-body">
