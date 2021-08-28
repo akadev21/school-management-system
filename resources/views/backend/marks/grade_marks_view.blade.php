@@ -35,7 +35,7 @@
 				<th>Point Range</th>
 				<th>Remarks</th>
 				 
-				<th width="20%">Action</th>
+				<th width="15%">Action</th>
 				 
 			</tr>
 		</thead>
@@ -52,7 +52,7 @@
 				 		 
 				<td>
 <a href="{{ route('marks.grade.edit',$value->id) }}" class="btn btn-info">Edit</a>
- <a href="{{ route('marks.grade.delete',$value->id) }}" class="btn btn-danger">Delete</a>
+ 
 
 				</td>
 				 

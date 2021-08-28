@@ -15,12 +15,12 @@
 <div class="col-12">
 <div class="box bb-3 border-warning">
 				  <div class="box-header">
-					<h4 class="box-title">Student <strong>Marks Entry</strong></h4>
+					<h4 class="box-title">Student <strong>Marsk Entry</strong></h4>
 				  </div>
 
 				  <div class="box-body">
 				
-		<form method="post" action="{{ route('marks.entry.store') }}">
+		<form method="post" action="marks.entry.store">
 			@csrf
 			<div class="row">
 
