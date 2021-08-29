@@ -31,8 +31,7 @@
 				<th>ID No</th> 
 				<th>Name </th>
 				<th>Amount</th>
-				<th>date </th>
-				
+				<th>Date</th> 
 				 
 				 
 			</tr>
@@ -43,7 +42,7 @@
 				<td>{{ $key+1 }}</td>
 				<td> {{ $value['user']['id_no'] }}</td>	
 				<td> {{ $value['user']['name'] }}</td>	
-				<td> {{ $value->amount }}</td>
+				<td> {{ $value->amount }}</td>	 
 				<td> {{ date('M Y', strtotime($value->date))  }}</td>
 				 		  
 			</tr>

@@ -93,7 +93,7 @@
  	<div class="form-group">
 		 <h5>Description <span class="text-danger">*</span></h5>
 				<div class="controls">
-		 <textarea name="description" id="description" class="form-control" required="" placeholder="Write  A Description" aria-invalid="false"></textarea>
+		 <textarea name="description" id="description" class="form-control" required="" placeholder="Textarea text" aria-invalid="false"></textarea>
 				<div class="help-block"></div></div>
 			</div>
 				 	

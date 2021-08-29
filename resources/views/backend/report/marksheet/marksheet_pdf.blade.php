@@ -33,7 +33,7 @@
 
   		<div class="col-md-4 text-center" style="float: left;">
   			<h4><strong>Easy Learning School</strong></h4>
-  			<h6><strong>Marks Sheet</strong></h6>
+  			<h6><strong>Kolkata India</strong></h6>
   			<h5><strong><u><i>Academic Transcript</i></u></strong></h5>
   			<h6><strong>{{ $allMarks['0']['exam_type']['name'] }}</strong></h6>
   			
@@ -231,7 +231,7 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
 <table border="1" style="border-color: #ffffff;" width="100%" cellpadding="1" cellspacing="1">
  <tbody>
     <tr>
-      <td style="text-align: left;"><strong>Remraks:</strong>
+      <td style="text-align: left;"><strong>Remrks:</strong>
         @if($count_fail > 0)
         Fail
         @else
